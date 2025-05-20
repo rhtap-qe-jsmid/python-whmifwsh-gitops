@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: python-whmifwsh-gitops
+  description: This is GitOps manifest for python-whmifwsh   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-selector: tssc/gitops=python-whmifwsh
+    backstage.io/kubernetes-id: python-whmifwsh 
+    backstage.io/techdocs-ref: dir:. 
+    janus-idp.io/tekton: python-whmifwsh
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:python-whmifwsh
